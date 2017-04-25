@@ -1,0 +1,106 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.6
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Czas generowania: 25 Mar 2017, 13:59
+-- Wersja serwera: 10.1.9-MariaDB
+-- Wersja PHP: 5.5.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Baza danych: `pierwsza`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `post`
+--
+
+CREATE TABLE `post` (
+  `id_post` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `temat` varchar(200) COLLATE utf8_polish_ci NOT NULL,
+  `tresc` text COLLATE utf8_polish_ci NOT NULL,
+  `data_dodania` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `products`
+--
+
+CREATE TABLE `products` (
+  `id_produktu` int(11) NOT NULL,
+  `nazwa_pr` varchar(30) COLLATE utf8_polish_ci NOT NULL,
+  `cena_pr` decimal(6,2) NOT NULL,
+  `ilosc_pr` int(100) NOT NULL,
+  `znizki_pr` varchar(10) COLLATE utf8_polish_ci NOT NULL,
+  `opis_pr` varchar(255) COLLATE utf8_polish_ci NOT NULL,
+  `zdjecie_pr` varchar(60) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `users`
+--
+
+CREATE TABLE `users` (
+  `id_user` int(11) NOT NULL,
+  `login` varchar(30) COLLATE utf8_polish_ci NOT NULL,
+  `pass` varchar(100) COLLATE utf8_polish_ci NOT NULL,
+  `miejscowosc` varchar(80) COLLATE utf8_polish_ci NOT NULL,
+  `ulica` varchar(80) COLLATE utf8_polish_ci NOT NULL,
+  `nr_d` varchar(5) COLLATE utf8_polish_ci NOT NULL,
+  `nr_m` varchar(5) COLLATE utf8_polish_ci NOT NULL,
+  `kod` varchar(6) COLLATE utf8_polish_ci NOT NULL,
+  `poczta` varchar(80) COLLATE utf8_polish_ci NOT NULL,
+  `mail` varchar(30) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Indeksy dla zrzutów tabel
+--
+
+--
+-- Indexes for table `post`
+--
+ALTER TABLE `post`
+  ADD PRIMARY KEY (`id_post`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id_produktu`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT dla tabeli `post`
+--
+ALTER TABLE `post`
+  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT dla tabeli `products`
+--
+ALTER TABLE `products`
+  MODIFY `id_produktu` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT dla tabeli `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
